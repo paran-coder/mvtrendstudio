@@ -25,10 +25,19 @@ export default function RecipeBuilderClient() {
   const seed = findTechnique(searchParams.get("seed"));
 
   const [activeAxis, setActiveAxis] = useState<Axis>(seed?.axis ?? "camera");
-  const [selectedIds, setSelectedIds] = useState<Partial<Record<Axis, string>>>(() => ({
-    ...defaultIds,
-    ...(seed ? { [seed.axis]: seed.id } : {}),
-  }));
+  const [selectedIds, setSelectedIds] = useState<Partial<Record<Axis, string>>>(() => {
+    const fromUrl: Partial<Record<Axis, string>> = {};
+    axes.forEach((axis) => {
+      const id = searchParams.get(axis);
+      const item = findTechnique(id);
+      if (item?.axis === axis) fromUrl[axis] = item.id;
+    });
+    return {
+      ...defaultIds,
+      ...fromUrl,
+      ...(seed ? { [seed.axis]: seed.id } : {}),
+    };
+  });
 
   const selected = useMemo(
     () => axes.map((axis) => findTechnique(selectedIds[axis])).filter(Boolean) as Technique[],
@@ -68,7 +77,7 @@ export default function RecipeBuilderClient() {
       </section>
 
       <section className="mx-auto max-w-[1480px] px-5 lg:px-8">
-        <div className="grid gap-5 xl:grid-cols-[250px_minmax(0,1fr)_340px]">
+        <div className="grid gap-5 xl:grid-cols-[230px_minmax(0,1fr)_360px]">
           <aside className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 xl:sticky xl:top-24 xl:h-fit">
             <div className="px-2 pb-3 text-[10px] font-semibold tracking-[0.16em] text-zinc-600">5 PRODUCTION AXES</div>
             <div className="flex gap-2 overflow-x-auto pb-2 xl:block xl:space-y-1 xl:overflow-visible xl:pb-0">
@@ -112,7 +121,7 @@ export default function RecipeBuilderClient() {
             </div>
           </aside>
 
-          <div className="min-w-0 rounded-2xl border border-white/8 bg-[#0d0d10]/90 p-5 sm:p-6 lg:p-8">
+          <div className="min-w-0 rounded-2xl border border-white/8 bg-[#0d0d10]/90 p-5 sm:p-6 lg:p-8 xl:p-9">
             <div className="flex flex-col gap-4 border-b border-white/8 pb-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <div className="kicker">{axisLabels[activeAxis].toUpperCase()}</div>
@@ -192,6 +201,7 @@ export default function RecipeBuilderClient() {
               결과 보기 →
             </Link>
             <div className="mt-3 text-center text-[11px] text-zinc-700">최소 3개 축을 선택하면 결과를 볼 수 있습니다.</div>
+            <Link href="/recipes/saved" className="mt-4 block text-center text-xs text-zinc-500 transition hover:text-zinc-200">저장된 레시피 보기 →</Link>
           </div>
         </div>
       </section>

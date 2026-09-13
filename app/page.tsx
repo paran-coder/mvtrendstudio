@@ -26,7 +26,7 @@ export default function HomePage() {
           <Link href="/methodology" className="text-xs text-zinc-500 transition hover:text-amber-100">분석 근거 보기 →</Link>
         </div>
 
-        <div className="grid gap-10 py-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:py-16">
+        <div className="grid gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-end lg:gap-14 lg:py-16">
           <div>
             <div className="kicker">CREATIVE INTELLIGENCE CONSOLE</div>
             <h1 className="mt-5 max-w-4xl text-balance text-5xl font-semibold tracking-[-0.055em] text-white sm:text-6xl lg:text-[78px] lg:leading-[0.98]">
@@ -45,14 +45,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl border border-amber-200/20 bg-[#111014] p-6 shadow-[0_30px_120px_rgba(0,0,0,0.42)] lg:p-8">
+          <div className="relative overflow-hidden rounded-3xl border border-amber-200/20 bg-[#111014] p-6 shadow-[0_30px_120px_rgba(0,0,0,0.42)] lg:p-8 xl:p-9">
             <div className="absolute -right-12 -top-16 size-48 rounded-full bg-amber-300/10 blur-3xl" aria-hidden="true" />
             <div className="relative">
               <div className="flex items-center justify-between">
                 <span className="kicker">CURRENT PRODUCTION SIGNAL</span>
                 <span className="rounded-full border border-amber-200/20 bg-amber-200/8 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] text-amber-100">TRENDING</span>
               </div>
-              <div className="mt-10 flex items-end gap-3">
+              <div className="mt-12 flex items-end gap-3">
                 <span className="text-7xl font-semibold tracking-[-0.07em] text-white tabular-nums">95</span>
                 <span className="pb-2 text-sm text-zinc-500">/ 100 · 리포트 추천 방향</span>
               </div>

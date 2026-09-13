@@ -12,15 +12,15 @@ export default function DirectorsPage() {
         <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-500">리포트 기준 2편 이상의 MV가 분석된 감독만 반복 기법을 시그니처 또는 패턴으로 표시합니다.</p>
       </section>
 
-      <section className="mx-auto grid max-w-[1480px] gap-4 px-5 md:grid-cols-2 lg:px-8">
+      <section className="mx-auto grid max-w-[1480px] gap-5 px-5 md:grid-cols-2 lg:px-8">
         {directorCards.map((director) => (
-          <article key={director.id} className="rounded-2xl border border-white/8 bg-white/[0.02] p-6 transition hover:border-amber-200/15 hover:bg-white/[0.03]">
+          <article key={director.id} className="group rounded-2xl border border-white/8 bg-white/[0.02] p-6 transition hover:-translate-y-0.5 hover:border-amber-200/18 hover:bg-white/[0.03] hover:shadow-[0_24px_70px_rgba(0,0,0,0.22)] motion-reduce:hover:translate-y-0">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <div className="text-xl font-semibold text-white">{director.name}</div>
                 <div className="mt-1 text-xs text-zinc-600">{director.status} · {director.mvCount} MV</div>
               </div>
-              <div className="rounded-full border border-amber-200/20 bg-amber-200/6 px-2.5 py-1 text-[10px] text-amber-100">DNA</div>
+              <div className="rounded-full border border-amber-200/20 bg-amber-200/6 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] text-amber-100">DNA</div>
             </div>
             <div className="mt-6 space-y-4 border-t border-white/7 pt-5 text-sm">
               <div><span className="mr-3 text-[10px] font-semibold tracking-[0.12em] text-zinc-600">CONCEPT</span><span className="text-zinc-300">{director.concept}</span></div>

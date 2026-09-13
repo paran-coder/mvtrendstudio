@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { EvidenceDrawer } from "@/components/EvidenceDrawer";
 import { Footer } from "@/components/Footer";
@@ -17,6 +17,7 @@ import {
   type Technique,
 } from "@/data/report";
 import { evaluateRecipe, gradeLabel } from "@/lib/scoring";
+import { readSavedRecipes, writeSavedRecipes } from "@/lib/savedRecipes";
 
 const axes: Axis[] = ["concept", "color", "camera", "motion", "editing"];
 
@@ -25,6 +26,8 @@ export default function RecipeResultClient() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerTitle, setDrawerTitle] = useState("선택한 조합의 장면 근거");
   const [drawerEvidence, setDrawerEvidence] = useState<SceneEvidence[]>([]);
+  const [saved, setSaved] = useState(false);
+  const [actionMessage, setActionMessage] = useState("");
 
   const selected = useMemo(() => {
     return axes
@@ -45,6 +48,12 @@ export default function RecipeResultClient() {
   const effectiveScore = selected.length ? score : evaluateRecipe(fallback);
   const title = fallback.map((item) => item.name).join(" × ");
   const allEvidence = evidenceForTechniques(fallback.map((item) => item.id));
+  const canonicalParams = new URLSearchParams();
+  axes.forEach((axis) => {
+    const item = fallback.find((candidate) => candidate.axis === axis);
+    if (item) canonicalParams.set(axis, item.id);
+  });
+  const canonicalQuery = canonicalParams.toString();
 
   const director = fallback.some((item) => item.id === "surreal-industrial-dystopia")
     ? directorCards.find((item) => item.id === "bang-jae-yeob")
@@ -52,16 +61,63 @@ export default function RecipeResultClient() {
       ? directorCards.find((item) => item.id === "tanu-muino")
       : directorCards.find((item) => item.id === "bang-jae-yeob");
 
+  useEffect(() => {
+    setSaved(readSavedRecipes().some((item) => item.id === canonicalQuery));
+  }, [canonicalQuery]);
+
   function openEvidence(evidence: SceneEvidence[], evidenceTitle: string) {
     setDrawerEvidence(evidence);
     setDrawerTitle(evidenceTitle);
     setDrawerOpen(true);
   }
 
+  function toggleSave() {
+    const existing = readSavedRecipes();
+    if (saved) {
+      writeSavedRecipes(existing.filter((item) => item.id !== canonicalQuery));
+      setSaved(false);
+      setActionMessage("저장을 해제했습니다.");
+      return;
+    }
+
+    const next = [
+      {
+        id: canonicalQuery,
+        query: canonicalQuery,
+        title,
+        grade: gradeLabel(effectiveScore.grade),
+        score: effectiveScore.total,
+        savedAt: new Date().toISOString(),
+      },
+      ...existing.filter((item) => item.id !== canonicalQuery),
+    ].slice(0, 12);
+
+    writeSavedRecipes(next);
+    setSaved(true);
+    setActionMessage("이 브라우저에 레시피를 저장했습니다.");
+  }
+
+  async function copyShareUrl() {
+    const url = `${window.location.origin}/recipes/result?${canonicalQuery}`;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = url;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+    setActionMessage("공유 링크를 복사했습니다.");
+  }
+
   return (
     <main>
       <section className="mx-auto max-w-[1480px] px-5 pb-8 pt-10 lg:px-8 lg:pt-14">
-        <div className="grid gap-8 lg:grid-cols-[1fr_360px] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
           <div>
             <div className="flex flex-wrap items-center gap-3">
               <span className="rounded-full border border-amber-200/25 bg-amber-200/8 px-3 py-1 text-xs font-semibold text-amber-100">
@@ -76,7 +132,11 @@ export default function RecipeResultClient() {
               {effectiveScore.reason} 아래 항목은 원본 리포트에서 관측된 신호와 서비스 내부 평가 로직을 분리해 보여줍니다.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/recipes/build" className="rounded-xl bg-amber-200 px-5 py-3 text-sm font-bold text-zinc-950 transition hover:bg-amber-100">레시피 수정</Link>
+              <Link href={`/recipes/build?${canonicalQuery}`} className="rounded-xl bg-amber-200 px-5 py-3 text-sm font-bold text-zinc-950 transition hover:bg-amber-100">레시피 수정</Link>
+              <button type="button" onClick={toggleSave} className={`rounded-xl border px-5 py-3 text-sm font-semibold transition ${saved ? "border-amber-200/30 bg-amber-200/[0.07] text-amber-100" : "border-white/10 text-zinc-300 hover:bg-white/5"}`}>
+                {saved ? "저장됨" : "레시피 저장"}
+              </button>
+              <button type="button" onClick={copyShareUrl} className="rounded-xl border border-white/10 px-5 py-3 text-sm font-semibold text-zinc-300 transition hover:bg-white/5 hover:text-white">공유 링크 복사</button>
               {allEvidence.length > 0 && (
                 <button
                   type="button"
@@ -86,10 +146,11 @@ export default function RecipeResultClient() {
                   장면 근거 {allEvidence.length}개 보기
                 </button>
               )}
-              <Link href="/methodology" className="rounded-xl border border-white/10 px-5 py-3 text-sm text-zinc-300 transition hover:bg-white/5">평가 방식 보기</Link>
+              <Link href="/recipes/saved" className="rounded-xl border border-white/10 px-5 py-3 text-sm text-zinc-400 transition hover:bg-white/5 hover:text-white">저장 목록</Link>
             </div>
+            <div aria-live="polite" className="mt-3 min-h-5 text-xs text-zinc-500">{actionMessage}</div>
           </div>
-          <ScorePanel score={effectiveScore} />
+          <div className="lg:sticky lg:top-24"><ScorePanel score={effectiveScore} /></div>
         </div>
       </section>
 

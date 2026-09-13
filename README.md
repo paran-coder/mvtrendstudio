@@ -1,6 +1,6 @@
 # MV Trend Studio
 
-**현재 버전: v1.0.0-alpha.2**  
+**현재 버전: v1.0.0-alpha.3**  
 **목표 버전: v1.0.0**
 
 K-pop MV 트렌드 데이터를 실제 제작 방향으로 연결하는 크리에이티브 인텔리전스 웹서비스입니다.
@@ -12,6 +12,9 @@ K-pop MV 트렌드 데이터를 실제 제작 방향으로 연결하는 크리�
 - Recipe Builder
 - Recipe Result
 - Scene Evidence Drawer / 대표 장면 타임코드
+- pathname 기반 활성 상단 내비게이션
+- 레시피 공유 URL 복사
+- 브라우저 LocalStorage 레시피 저장 / 저장 목록
 - Trend 목록
 - Director DNA
 - Methodology
@@ -80,6 +83,7 @@ app/
   trends/page.tsx          # 전체 트렌드
   recipes/build/page.tsx   # Recipe Builder
   recipes/result/page.tsx  # Recipe Result
+  recipes/saved/page.tsx   # 저장된 레시피
   directors/page.tsx       # Director DNA
   methodology/page.tsx     # 분석 방법
 components/
@@ -91,7 +95,7 @@ docs/
 
 ## 데이터 정책
 
-현재 MVP는 리포트에서 확인되는 집계 데이터를 Git 저장소 내부 TypeScript seed로 관리합니다. 사용자가 만든 레시피 저장, 인증, 자동 데이터 갱신이 필요해지는 시점에 Supabase/PostgreSQL 도입을 검토합니다.
+현재 MVP는 리포트에서 확인되는 집계 데이터를 Git 저장소 내부 TypeScript seed로 관리합니다. 레시피 저장은 서버 없이 브라우저 LocalStorage를 사용하며, 공유는 쿼리스트링 기반 URL로 동작합니다. 계정 간 동기화나 팀 공유가 필요해지는 시점에 Supabase/PostgreSQL 도입을 검토합니다.
 
 ## 중요
 
@@ -105,3 +109,14 @@ docs/
 - 대표 장면의 아티스트·MV·구간·타임코드·리포트 페이지 표시
 - 원본 영상 프레임은 배포 권한이 확정되기 전까지 복제하지 않고 프레임 자리 표시 UI 사용
 - 사용자 UI/문서는 한국어 우선, 제작 기법·고유 콘셉트 식별자는 영문 유지
+
+
+## alpha.3 변경점
+
+- 상단 메뉴의 활성 상태를 현재 pathname 기준으로 전환하도록 수정
+- `/recipes/build`, `/recipes/result`, `/recipes/saved`에서는 `레시피 빌더`가 활성 상태로 표시
+- 데스크톱 Header, Home hero, Builder 3열 비율, Result 점수 패널, Trend 테이블 정보 밀도 보정
+- Recipe Result에서 공유 URL 복사 기능 추가
+- Recipe Result에서 LocalStorage 저장/해제 기능 추가
+- `/recipes/saved` 저장 레시피 목록 및 삭제 기능 추가
+- 저장된 레시피를 다시 Builder에서 수정할 수 있도록 다중 query param 초기값 지원

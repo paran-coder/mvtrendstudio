@@ -15,9 +15,15 @@ export default function TrendsPage() {
       </section>
 
       <section className="mx-auto max-w-[1480px] px-5 lg:px-8">
-        <div className="overflow-hidden rounded-2xl border border-white/8 bg-white/[0.018]">
+        <div className="overflow-hidden rounded-2xl border border-white/8 bg-white/[0.018] shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
+          <div className="hidden border-b border-white/8 bg-white/[0.018] px-6 py-3 md:grid md:grid-cols-[1fr_140px_180px_120px] md:items-center">
+            <span className="text-[10px] font-semibold tracking-[0.14em] text-zinc-600">SIGNAL</span>
+            <span className="text-[10px] font-semibold tracking-[0.14em] text-zinc-600">CHANGE</span>
+            <span className="text-[10px] font-semibold tracking-[0.14em] text-zinc-600">2025 → 2026 YTD</span>
+            <span className="text-[10px] font-semibold tracking-[0.14em] text-zinc-600">ACTION</span>
+          </div>
           {techniques.filter((item) => typeof item.delta === "number").sort((a, b) => (b.delta ?? 0) - (a.delta ?? 0)).map((item, index) => (
-            <div key={item.id} className={`grid gap-4 px-5 py-5 md:grid-cols-[1fr_140px_180px_120px] md:items-center lg:px-6 ${index ? "border-t border-white/7" : ""}`}>
+            <div key={item.id} className={`grid gap-4 px-5 py-5 transition hover:bg-white/[0.018] md:grid-cols-[1fr_140px_180px_120px] md:items-center lg:px-6 ${index ? "border-t border-white/7" : ""}`}>
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="font-medium text-white">{item.name}</span>

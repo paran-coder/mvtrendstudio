@@ -1,6 +1,6 @@
 # MV Trend Studio — Checklist
 
-버전: **v1.0.0-alpha.2**
+버전: **v1.0.0-alpha.3**
 
 ## Phase 0 — 기반 정의
 - [x] 프로젝트 명칭 확정: MV Trend Studio
@@ -57,7 +57,7 @@
 ## Phase 7 — MVP 확장
 - [x] 장면 단위 Evidence Drawer
 - [ ] 감독 상세 페이지
-- [ ] 레시피 URL 저장/공유
+- [x] 레시피 URL 저장/공유
 - [~] 원본 장면 이미지 사용 정책 확정 — alpha.2에서는 프레임 미포함, 공개 배포 전 권한 검토 필요
 - [ ] 필요 시 Supabase 도입
 
@@ -69,3 +69,28 @@
 - [x] 모바일 Bottom Sheet 대응
 - [x] PDF에 없는 장면 데이터 임의 생성 방지
 - [ ] Vercel Preview에서 실제 브라우저 시각 QA
+
+
+## v1.0.0-alpha.3
+- [x] pathname 기반 활성 내비게이션
+- [x] Recipe 하위 경로(`/recipes/build`, `/recipes/result`, `/recipes/saved`)를 하나의 활성 메뉴로 처리
+- [x] 데스크톱 Header / Hero / Builder / Result / Trend 테이블 밀도 보정
+- [x] 결과 페이지 공유 링크 복사
+- [x] 레시피 LocalStorage 저장/삭제
+- [x] 저장된 레시피 목록 페이지
+- [x] 키보드/포커스/aria-current 코드 점검
+- [x] TypeScript/TSX syntax 점검
+- [x] ZIP 패키징
+
+
+## alpha.3 자체 점검
+- [x] Header의 기존 hard-coded `레시피 빌더` 강조 제거
+- [x] pathname별 `aria-current=page` 적용
+- [x] Result → Builder 수정 시 전체 5축 query 유지
+- [x] 공유 URL canonical query 생성
+- [x] LocalStorage JSON 오류 시 안전하게 빈 목록 처리
+- [x] 저장 목록 초기 hydration 상태 분리
+- [x] TS/TSX 20개 파일 syntax transpile 검사 통과
+- [x] `@/` 로컬 import 대상 존재 여부 검사 통과
+- [ ] Vercel Production Build 재검증
+- [ ] 실제 1440px 데스크톱 시각 QA

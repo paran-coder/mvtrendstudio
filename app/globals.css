@@ -86,3 +86,13 @@ select:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+@media (min-width: 1280px) {
+  body {
+    min-width: 1024px;
+  }
+}
