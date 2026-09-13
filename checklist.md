@@ -1,6 +1,6 @@
 # MV Trend Studio — Checklist
 
-버전: **v1.0.0-alpha.1**
+버전: **v1.0.0-alpha.2**
 
 ## Phase 0 — 기반 정의
 - [x] 프로젝트 명칭 확정: MV Trend Studio
@@ -55,8 +55,17 @@
 - [ ] 모바일 실기기 확인
 
 ## Phase 7 — MVP 확장
-- [ ] 장면 단위 Evidence Drawer
+- [x] 장면 단위 Evidence Drawer
 - [ ] 감독 상세 페이지
 - [ ] 레시피 URL 저장/공유
-- [ ] 원본 장면 이미지 사용 정책 확정
+- [~] 원본 장면 이미지 사용 정책 확정 — alpha.2에서는 프레임 미포함, 공개 배포 전 권한 검토 필요
 - [ ] 필요 시 Supabase 도입
+
+
+## alpha.2 자체 점검
+- [x] Result → Evidence Drawer 진입점 추가
+- [x] 기법별 대표 타임코드 필터링
+- [x] Escape 닫기 / backdrop 닫기 / 초기 focus 처리
+- [x] 모바일 Bottom Sheet 대응
+- [x] PDF에 없는 장면 데이터 임의 생성 방지
+- [ ] Vercel Preview에서 실제 브라우저 시각 QA

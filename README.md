@@ -1,6 +1,6 @@
 # MV Trend Studio
 
-**현재 버전: v1.0.0-alpha.1**  
+**현재 버전: v1.0.0-alpha.2**  
 **목표 버전: v1.0.0**
 
 K-pop MV 트렌드 데이터를 실제 제작 방향으로 연결하는 크리에이티브 인텔리전스 웹서비스입니다.
@@ -11,6 +11,7 @@ K-pop MV 트렌드 데이터를 실제 제작 방향으로 연결하는 크리�
 - Home / Trend Radar
 - Recipe Builder
 - Recipe Result
+- Scene Evidence Drawer / 대표 장면 타임코드
 - Trend 목록
 - Director DNA
 - Methodology
@@ -63,7 +64,7 @@ mv-trend-studio
 4. 별도 Build 설정을 덮어쓰지 않음
 5. 첫 배포 실행
 
-현재 버전은 외부 DB와 필수 환경변수가 없으므로 바로 Preview/Production 빌드가 가능하도록 설계되어 있습니다.
+현재 버전은 외부 DB와 필수 환경변수가 없으므로 바로 Preview/Production 빌드가 가능하도록 설계되어 있습니다. 장면 Evidence는 원본 리포트 Recipe 01–03에 명시된 대표 타임코드를 정적 데이터로 연결합니다.
 
 ## 첫 Preview 권장 시점
 
@@ -95,3 +96,12 @@ docs/
 ## 중요
 
 `Production Fit / 100`은 원본 리포트 공식 점수가 아니라 MV Trend Studio가 제작 의사결정을 위해 계산하는 내부 제품 점수입니다.
+
+
+## alpha.2 변경점
+
+- Recipe Result에서 장면 근거를 바로 열 수 있는 Evidence Drawer 추가
+- 데스크톱은 우측 Drawer, 모바일은 Bottom Sheet 형태로 동작
+- 대표 장면의 아티스트·MV·구간·타임코드·리포트 페이지 표시
+- 원본 영상 프레임은 배포 권한이 확정되기 전까지 복제하지 않고 프레임 자리 표시 UI 사용
+- 사용자 UI/문서는 한국어 우선, 제작 기법·고유 콘셉트 식별자는 영문 유지

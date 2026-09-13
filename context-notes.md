@@ -1,6 +1,6 @@
 # MV Trend Studio — Context Notes
 
-버전: **v1.0.0-alpha.1**  
+버전: **v1.0.0-alpha.2**  
 목표 릴리스: **v1.0.0**
 
 ## 제품 정의
@@ -36,6 +36,8 @@ MV Trend Studio는 K-pop 뮤직비디오의 콘셉트·컬러·카메라·모션
 - Methodology
 - 정적 리포트 기반 데이터
 - 클라이언트 사이드 Production Fit 평가
+- Recipe Result 장면 Evidence Drawer
+- PDF Recipe 01–03 대표 타임코드 연결
 
 ## 배포 전제
 
@@ -57,3 +59,11 @@ MV Trend Studio는 K-pop 뮤직비디오의 콘셉트·컬러·카메라·모션
 ## 언어 정책
 
 사용자-facing 문구는 한국어 우선입니다. `Pan`, `Match Cut`, `Controlled Saturation`, `Neon Y2K Cyber Romance` 등 원문 분석 용어는 데이터 식별성을 위해 영문을 유지합니다. 기술 문서의 코드 경로·타입명·변수명은 영어로 유지합니다.
+
+
+## Evidence 정책 — alpha.2
+
+- 현재 PDF에서 직접 확인 가능한 대표 장면/타임코드만 서비스 데이터로 사용합니다.
+- 리포트에 없는 전체 장면 목록을 추정해 채우지 않습니다.
+- 장면 이미지/영상 프레임은 사용 권한 정책 확정 전까지 placeholder로 유지합니다.
+- Evidence Drawer는 데스크톱 우측 Drawer, 모바일 Bottom Sheet로 동작합니다.

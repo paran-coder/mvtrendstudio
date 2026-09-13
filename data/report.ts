@@ -351,3 +351,185 @@ export const axisLabels: Record<Axis, string> = {
   motion: "모션",
   editing: "편집",
 };
+
+export type SceneEvidence = {
+  id: string;
+  techniqueId: string;
+  artist: string;
+  title: string;
+  section: string;
+  timecode: string;
+  sourcePage: number;
+  sourceKind: "리포트 타임코드";
+  note?: string;
+};
+
+/**
+ * 원본 리포트의 Recipe 01–03에 명시된 대표 장면/타임코드만 수록합니다.
+ * 전체 장면 데이터셋을 의미하지 않으며, 서비스에서 확인 가능한 대표 근거 표본입니다.
+ */
+export const sceneEvidence: SceneEvidence[] = [
+  {
+    id: "ev-neon-y2k-atheart-shut-up",
+    techniqueId: "neon-y2k-cyber-romance",
+    artist: "AtHeart (앳하트)",
+    title: "Shut Up",
+    section: "Outro",
+    timecode: "2:05",
+    sourcePage: 14,
+    sourceKind: "리포트 타임코드",
+    note: "Neon Y2K Cyber Romance 대표 장면",
+  },
+  {
+    id: "ev-handheld-aespa-lemonade",
+    techniqueId: "handheld-tracking",
+    artist: "aespa (에스파)",
+    title: "LEMONADE",
+    section: "Bridge",
+    timecode: "2:30",
+    sourcePage: 14,
+    sourceKind: "리포트 타임코드",
+    note: "Handheld Tracking 대표 장면",
+  },
+  {
+    id: "ev-slow-motion-meovv-in-my-hands",
+    techniqueId: "slow-motion",
+    artist: "MEOVV (미야오)",
+    title: "In my hands",
+    section: "Bridge",
+    timecode: "1:44",
+    sourcePage: 15,
+    sourceKind: "리포트 타임코드",
+    note: "Slow Motion 대표 장면",
+  },
+  {
+    id: "ev-match-cut-lesserafim-celebration",
+    techniqueId: "match-cut",
+    artist: "LE SSERAFIM (르세라핌)",
+    title: "CELEBRATION",
+    section: "Verse",
+    timecode: "0:26",
+    sourcePage: 15,
+    sourceKind: "리포트 타임코드",
+    note: "Match Cut 대표 장면",
+  },
+  {
+    id: "ev-existential-silence-wang",
+    techniqueId: "existential-museum",
+    artist: "汪苏泷 Silence Wang",
+    title: "问你一个人类梦寐以求的深奥问题 (My Answer)",
+    section: "Verse",
+    timecode: "0:35",
+    sourcePage: 16,
+    sourceKind: "리포트 타임코드",
+    note: "Existential Museum of Human History 대표 장면",
+  },
+  {
+    id: "ev-pan-aespa-lemonade",
+    techniqueId: "pan",
+    artist: "aespa (에스파)",
+    title: "LEMONADE",
+    section: "Chorus",
+    timecode: "1:41",
+    sourcePage: 16,
+    sourceKind: "리포트 타임코드",
+    note: "Pan 대표 장면",
+  },
+  {
+    id: "ev-pan-lngshot-moonwalkin",
+    techniqueId: "pan",
+    artist: "LNGSHOT",
+    title: "Moonwalkin",
+    section: "Bridge",
+    timecode: "2:27",
+    sourcePage: 16,
+    sourceKind: "리포트 타임코드",
+    note: "Pan 추가 대표 장면",
+  },
+  {
+    id: "ev-whip-pan-evan-ride-or-die",
+    techniqueId: "whip-pan",
+    artist: "EVAN (에반)",
+    title: "Ride or Die",
+    section: "Chorus",
+    timecode: "1:19",
+    sourcePage: 17,
+    sourceKind: "리포트 타임코드",
+    note: "Whip Pan 대표 장면",
+  },
+  {
+    id: "ev-surreal-industrial-bts-hooligan",
+    techniqueId: "surreal-industrial-dystopia",
+    artist: "BTS (방탄소년단)",
+    title: "Hooligan",
+    section: "Bridge",
+    timecode: "2:57",
+    sourcePage: 18,
+    sourceKind: "리포트 타임코드",
+    note: "Surreal Industrial Dystopia 대표 장면",
+  },
+  {
+    id: "ev-rack-focus-cortis-blue-lips",
+    techniqueId: "rack-focus",
+    artist: "CORTIS (코르티스)",
+    title: "Blue Lips",
+    section: "Chorus",
+    timecode: "1:17",
+    sourcePage: 18,
+    sourceKind: "리포트 타임코드",
+    note: "Rack Focus 대표 장면",
+  },
+  {
+    id: "ev-rack-focus-xg-hypnotize",
+    techniqueId: "rack-focus",
+    artist: "XG",
+    title: "HYPNOTIZE",
+    section: "Verse",
+    timecode: "0:29",
+    sourcePage: 18,
+    sourceKind: "리포트 타임코드",
+    note: "Rack Focus 추가 대표 장면",
+  },
+  {
+    id: "ev-rack-focus-idle-gimme-dat-love",
+    techniqueId: "rack-focus",
+    artist: "i-dle (아이들)",
+    title: "Gimme Dat Love",
+    section: "Bridge",
+    timecode: "2:03",
+    sourcePage: 18,
+    sourceKind: "리포트 타임코드",
+    note: "Rack Focus 추가 대표 장면",
+  },
+  {
+    id: "ev-dolly-silence-wang",
+    techniqueId: "dolly-push-in",
+    artist: "汪苏泷 Silence Wang",
+    title: "问你一个人类梦寐以求的深奥问题 (My Answer)",
+    section: "Verse",
+    timecode: "0:35",
+    sourcePage: 19,
+    sourceKind: "리포트 타임코드",
+    note: "Dolly Push-in 대표 장면",
+  },
+  {
+    id: "ev-screen-in-screen-unchild",
+    techniqueId: "screen-in-screen",
+    artist: "UNCHILD (언차일드)",
+    title: "UNCHILD",
+    section: "Outro",
+    timecode: "2:33",
+    sourcePage: 19,
+    sourceKind: "리포트 타임코드",
+    note: "Screen in Screen 대표 장면",
+  },
+];
+
+export function evidenceForTechnique(techniqueId: string) {
+  return sceneEvidence.filter((item) => item.techniqueId === techniqueId);
+}
+
+export function evidenceForTechniques(techniqueIds: string[]) {
+  const ids = new Set(techniqueIds);
+  return sceneEvidence.filter((item) => ids.has(item.techniqueId));
+}

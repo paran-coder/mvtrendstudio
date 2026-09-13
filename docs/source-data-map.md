@@ -50,3 +50,24 @@
 - Safe / Trending / Experimental 분류 로직
 
 UI에서는 원본 리포트 수치와 이 내부 파생값을 서로 다른 레이어로 표시합니다.
+
+## 장면 Evidence — alpha.2
+
+아래 값은 Recipe 01–03의 “대표 장면 · 타임코드 · 움직임 예제”에 직접 표기된 항목만 서비스에 연결합니다.
+
+- AtHeart · Shut Up · Neon Y2K Cyber Romance · Outro 2:05 — p.14
+- aespa · LEMONADE · Handheld Tracking · Bridge 2:30 — p.14
+- MEOVV · In my hands · Slow Motion · Bridge 1:44 — p.15
+- LE SSERAFIM · CELEBRATION · Match Cut · Verse 0:26 — p.15
+- 汪苏泷 Silence Wang · My Answer · Existential Museum of Human History · Verse 0:35 — p.16
+- aespa · LEMONADE · Pan · Chorus 1:41 — p.16
+- LNGSHOT · Moonwalkin · Pan · Bridge 2:27 — p.16
+- EVAN · Ride or Die · Whip Pan · Chorus 1:19 — p.17
+- BTS · Hooligan · Surreal Industrial Dystopia · Bridge 2:57 — p.18
+- CORTIS · Blue Lips · Rack Focus · Chorus 1:17 — p.18
+- XG · HYPNOTIZE · Rack Focus · Verse 0:29 — p.18
+- i-dle · Gimme Dat Love · Rack Focus · Bridge 2:03 — p.18
+- 汪苏泷 Silence Wang · My Answer · Dolly Push-in · Verse 0:35 — p.19
+- UNCHILD · UNCHILD · Screen in Screen · Outro 2:33 — p.19
+
+이 목록은 전체 장면 데이터베이스가 아닙니다. PDF에서 직접 확인 가능한 대표 근거 표본입니다.
