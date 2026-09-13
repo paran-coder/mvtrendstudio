@@ -1,6 +1,6 @@
 # MV Trend Studio — Context Notes
 
-버전: **v1.0.0-alpha.3**  
+버전: **v1.0.0-alpha.4**  
 목표 릴리스: **v1.0.0**
 
 ## 제품 정의
@@ -29,6 +29,7 @@ MV Trend Studio는 K-pop 뮤직비디오의 콘셉트·컬러·카메라·모션
 ## 현재 구현 범위
 
 - Home / Trend Radar
+- User Guide / 3분 실습형 온보딩
 - Recipe Builder
 - Recipe Result
 - Trends
@@ -38,6 +39,7 @@ MV Trend Studio는 K-pop 뮤직비디오의 콘셉트·컬러·카메라·모션
 - 클라이언트 사이드 Production Fit 평가
 - Recipe Result 장면 Evidence Drawer
 - PDF Recipe 01–03 대표 타임코드 연결
+- Recipe 저장 / 공유 URL
 
 ## 배포 전제
 
@@ -75,3 +77,10 @@ MV Trend Studio는 K-pop 뮤직비디오의 콘셉트·컬러·카메라·모션
 - 기능 우선순위: 감독 상세보다 `레시피 저장 + 공유 URL`을 먼저 구현한다.
 - 배포 방식: 사용자가 ZIP을 직접 GitHub 저장소에 업로드하고 Vercel에서 배포한다. 프로젝트는 필수 환경변수 없이 빌드 가능해야 한다.
 - 언어 정책: 사용자 UI/설명은 한국어, 제작 식별 용어는 영문 유지.
+
+## alpha.4 작업 컨텍스트
+- 실배포 사용성 피드백: 기능은 있으나 처음 방문한 사용자가 서비스 사용 순서를 이해하기 어렵다.
+- 우선순위: 모바일 폴리싱 전, 데스크톱에서 온보딩과 사용자 가이드까지 완성한다.
+- `/guide`는 문서 페이지가 아니라 `3분 사용법 + 실제 샘플 실습` 형태로 만든다.
+- Home에서 서비스의 입력(2025→2026 YTD 트렌드)과 출력(제작 조합, 점수, 장면 근거)을 직접 설명한다.
+- Score UI는 높은 값이 좋은 방향이라는 뜻이 명확하도록 `포화 리스크` 대신 `포화도 안전성`을 사용자-facing 용어로 사용한다.

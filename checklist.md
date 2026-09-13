@@ -1,6 +1,6 @@
 # MV Trend Studio — Checklist
 
-버전: **v1.0.0-alpha.3**
+버전: **v1.0.0-alpha.4**
 
 ## Phase 0 — 기반 정의
 - [x] 프로젝트 명칭 확정: MV Trend Studio
@@ -94,3 +94,34 @@
 - [x] `@/` 로컬 import 대상 존재 여부 검사 통과
 - [ ] Vercel Production Build 재검증
 - [ ] 실제 1440px 데스크톱 시각 QA
+
+## v1.0.0-alpha.4 — 온보딩 / 사용자 가이드
+- [x] `/guide` 라우트 추가
+- [x] 상단 내비게이션에 `사용자 가이드` 추가
+- [x] Home Hero 목적 설명 강화
+- [x] Home 첫 방문 4단계 흐름 추가
+- [x] Guide 5단계 Quick Start 추가
+- [x] Recipe 01–03 인터랙티브 샘플 추가
+- [x] Guide에서 샘플 → Builder query 전달
+- [x] Production Fit 4개 지표 설명
+- [x] `포화도 안전성` 용어 정리
+- [x] SAFE / TRENDING / EXPERIMENTAL 설명
+- [x] Evidence 읽는 법 추가
+- [x] LocalStorage 저장 / 공유 URL 설명
+- [x] Builder 인라인 온보딩 추가
+- [x] Score Panel 가이드 진입점 추가
+- [ ] Vercel 재배포 후 `/guide` 실제 1440px 시각 QA
+- [ ] 가이드 → 샘플 → 결과 전체 클릭 플로우 QA
+
+## alpha.4 자체 점검
+- [x] TS/TSX 22개 파일 syntax transpile 검사 통과
+- [x] `@/` 로컬 alias import 대상 존재 여부 검사 통과
+- [x] 샘플 3종 등급 검증: Safe 79 / Trending 84 / Experimental 80
+- [x] `/guide`, `#demo`, `#score`, `#evidence`, `#share` 진입 경로 확인
+- [x] Header 일반 메뉴와 Recipe CTA 분리 확인
+- [x] `포화 리스크` 사용자-facing 표기를 `포화도 안전성`으로 정리
+- [ ] Vercel Production Build 재검증
+- [ ] 실제 1440px 데스크톱 시각 QA
+
+### 자체 평가
+**9.7 / 10** — 처음 방문자의 이해 흐름과 실습 경로는 크게 개선되었습니다. 남은 점수는 Vercel 실제 렌더링에서의 타이포그래피·여백·헤더 폭과 브라우저별 빌드 검증에 해당합니다.

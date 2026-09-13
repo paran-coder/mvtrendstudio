@@ -24,11 +24,15 @@ npm run dev
 3. Vercel에서 저장소를 Import합니다.
 4. Next.js 자동 설정을 그대로 사용해 배포합니다.
 
-현재 alpha.3는 외부 DB나 필수 환경변수가 없습니다.
+현재 alpha.4는 외부 DB나 필수 환경변수가 없습니다.
 
 
-## alpha.3에서 확인할 화면
+## alpha.4에서 먼저 확인할 화면
 
-`/trends`, `/recipes/build`, `/directors`, `/methodology`로 이동할 때 상단 활성 메뉴가 현재 페이지에 맞게 바뀌는지 먼저 확인합니다. `/recipes/result`에서는 `레시피 저장`, `공유 링크 복사`, `저장 목록` 기능도 확인할 수 있습니다.
+1. `/` — Hero에서 서비스 목적이 바로 이해되는지, `3분 가이드` 진입점이 보이는지
+2. `/guide` — 5단계 설명과 샘플 Recipe 전환이 자연스러운지
+3. `/guide#score` — Production Fit 4개 지표 설명이 이해되는지
+4. `/recipes/build` — `5가지만 선택하세요` 온보딩과 3열 Builder가 자연스러운지
+5. `/recipes/result` — Score Panel의 `?`가 `/guide#score`로 연결되는지
 
-이번 버전은 데스크톱 UI 보정을 우선 적용했습니다. Vercel 재배포 후 데스크톱 화면을 먼저 확인하고, 그 다음 모바일 breakpoint와 Bottom Sheet 높이를 조정합니다.
+이번 버전은 모바일 폴리싱 전에 **데스크톱 온보딩과 사용법 완성**을 우선합니다. `/guide`를 확인한 뒤 샘플 레시피를 Builder로 넘기고 Result까지 한 번의 흐름으로 테스트하는 것을 권장합니다.

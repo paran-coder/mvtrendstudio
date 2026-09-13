@@ -1,6 +1,6 @@
 # Evidence Drawer 사양
 
-버전: v1.0.0-alpha.3
+버전: v1.0.0-alpha.4
 
 ## 목적
 

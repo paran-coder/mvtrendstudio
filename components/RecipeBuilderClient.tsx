@@ -76,6 +76,19 @@ export default function RecipeBuilderClient() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-[1480px] px-5 pb-5 lg:px-8">
+        <div className="flex flex-col gap-4 rounded-2xl border border-amber-200/12 bg-amber-200/[0.025] p-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full border border-amber-200/20 bg-amber-200/[0.05] text-xs font-semibold text-amber-100">5</span>
+            <div>
+              <div className="text-sm font-semibold text-zinc-200">5가지만 선택하세요.</div>
+              <p className="mt-1 text-xs leading-5 text-zinc-600">콘셉트 → 컬러 → 카메라 → 모션 → 편집. 선택할수록 오른쪽 Production Fit이 갱신되고, 최소 3개 축부터 결과를 볼 수 있습니다.</p>
+            </div>
+          </div>
+          <Link href="/guide#demo" className="shrink-0 text-xs font-semibold text-amber-100 transition hover:text-amber-50">샘플로 배우기 →</Link>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-[1480px] px-5 lg:px-8">
         <div className="grid gap-5 xl:grid-cols-[230px_minmax(0,1fr)_360px]">
           <aside className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 xl:sticky xl:top-24 xl:h-fit">

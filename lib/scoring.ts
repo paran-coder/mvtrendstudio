@@ -55,6 +55,7 @@ export function evaluateRecipe(selected: Technique[]): ScoreBreakdown {
   const novelty = avg(selected.map((item) => item.novelty));
   const saturatedCount = selected.filter((item) => item.signal === "포화" || item.signal === "하락").length;
   const experimentalCount = selected.filter((item) => item.signal === "실험적").length;
+  const highNoveltyCount = selected.filter((item) => item.novelty >= 19).length;
 
   let grade: ScoreBreakdown["grade"] = "TRENDING";
   let reason = "상승 신호와 제작 근거가 균형을 이루는 조합입니다.";
@@ -62,7 +63,7 @@ export function evaluateRecipe(selected: Technique[]): ScoreBreakdown {
   if (total >= 78 && novelty < 16 && saturatedCount <= 1) {
     grade = "SAFE";
     reason = "검증 근거가 충분하고 조합 위험이 낮아 안정적인 제작 방향입니다.";
-  } else if (experimentalCount >= 1 || novelty >= 18 || evidence < 17) {
+  } else if (experimentalCount >= 2 || highNoveltyCount >= 3 || (novelty >= 19 && evidence < 19) || evidence < 17) {
     grade = "EXPERIMENTAL";
     reason = "차별화 가능성이 높지만 표본 또는 조합 검증이 상대적으로 적습니다.";
   }

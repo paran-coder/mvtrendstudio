@@ -32,8 +32,8 @@ export default function HomePage() {
             <h1 className="mt-5 max-w-4xl text-balance text-5xl font-semibold tracking-[-0.055em] text-white sm:text-6xl lg:text-[78px] lg:leading-[0.98]">
               다음 뮤직비디오를<br />무엇으로 만들까요?
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
-              콘셉트, 컬러, 카메라, 모션, 편집 신호를 조합해 지금 시점에 설득력 있는 제작 방향을 빠르게 설계합니다.
+            <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-400 sm:text-lg">
+              2025 대비 2026 YTD K-pop MV 트렌드를 바탕으로 <span className="text-zinc-200">콘셉트·컬러·카메라·모션·편집을 조합하고, 제작 적합도와 실제 장면 근거까지 확인</span>합니다.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/recipes/build" className="rounded-xl bg-amber-200 px-5 py-3 text-sm font-bold text-zinc-950 transition hover:bg-amber-100">
@@ -43,6 +43,10 @@ export default function HomePage() {
                 전체 트렌드 보기
               </Link>
             </div>
+            <Link href="/guide" className="mt-5 inline-flex items-center gap-2 text-xs font-medium text-zinc-500 transition hover:text-amber-100">
+              <span className="grid size-5 place-items-center rounded-full border border-white/10 text-[10px]">?</span>
+              처음 사용하시나요? 3분 가이드 보기 →
+            </Link>
           </div>
 
           <div className="relative overflow-hidden rounded-3xl border border-amber-200/20 bg-[#111014] p-6 shadow-[0_30px_120px_rgba(0,0,0,0.42)] lg:p-8 xl:p-9">
@@ -64,6 +68,30 @@ export default function HomePage() {
                 이 방향에서 시작하기 →
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1480px] px-5 pb-10 lg:px-8 lg:pb-14">
+        <div className="grid overflow-hidden rounded-2xl border border-white/8 bg-white/[0.018] lg:grid-cols-[220px_repeat(4,1fr)_180px] lg:items-stretch">
+          <div className="border-b border-white/8 p-5 lg:border-b-0 lg:border-r">
+            <div className="text-[10px] font-semibold tracking-[0.16em] text-amber-200">FIRST VISIT?</div>
+            <div className="mt-2 text-sm font-semibold text-white">사용 흐름은 단순합니다.</div>
+          </div>
+          {[
+            ["01", "트렌드 확인", "상승·하락 신호"],
+            ["02", "조합 설계", "5개 제작 축"],
+            ["03", "점수 확인", "Production Fit"],
+            ["04", "근거 검증", "장면·타임코드"],
+          ].map(([number, title, description]) => (
+            <div key={number} className="border-b border-white/7 p-5 lg:border-b-0 lg:border-r">
+              <div className="text-[10px] tabular-nums text-zinc-700">{number}</div>
+              <div className="mt-2 text-xs font-semibold text-zinc-200">{title}</div>
+              <div className="mt-1 text-[11px] text-zinc-600">{description}</div>
+            </div>
+          ))}
+          <div className="flex items-center p-5">
+            <Link href="/guide" className="text-xs font-semibold text-amber-100 transition hover:text-amber-50">사용법 전체 보기 →</Link>
           </div>
         </div>
       </section>

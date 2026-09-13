@@ -47,7 +47,7 @@ export default function MethodologyPage() {
             </div>
             <div className="rounded-xl border border-amber-200/15 bg-amber-200/[0.04] p-5">
               <h2 className="text-sm font-semibold text-amber-100">MV Trend Studio 제품 점수</h2>
-              <p className="mt-2 text-sm leading-6 text-zinc-500">Production Fit 100점은 원본 리포트의 공식 수치가 아닙니다. 트렌드 모멘텀 35, 근거 강도 25, 포화 리스크 20, 조합 응집도 20의 내부 제품 로직으로 산정합니다.</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-500">Production Fit 100점은 원본 리포트의 공식 수치가 아닙니다. 트렌드 모멘텀 35, 근거 강도 25, 포화도 안전성 20, 조합 응집도 20의 내부 제품 로직으로 산정합니다.</p>
             </div>
           </div>
         </div>

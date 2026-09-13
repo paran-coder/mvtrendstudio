@@ -1,6 +1,6 @@
 # MV Trend Studio
 
-**현재 버전: v1.0.0-alpha.3**  
+**현재 버전: v1.0.0-alpha.4**  
 **목표 버전: v1.0.0**
 
 K-pop MV 트렌드 데이터를 실제 제작 방향으로 연결하는 크리에이티브 인텔리전스 웹서비스입니다.
@@ -13,6 +13,7 @@ K-pop MV 트렌드 데이터를 실제 제작 방향으로 연결하는 크리�
 - Recipe Result
 - Scene Evidence Drawer / 대표 장면 타임코드
 - pathname 기반 활성 상단 내비게이션
+- `/guide` 3분 사용자 가이드 / 샘플 실습
 - 레시피 공유 URL 복사
 - 브라우저 LocalStorage 레시피 저장 / 저장 목록
 - Trend 목록
@@ -80,6 +81,7 @@ mv-trend-studio
 ```text
 app/
   page.tsx                 # Home / Trend Radar
+  guide/page.tsx           # 3분 사용자 가이드
   trends/page.tsx          # 전체 트렌드
   recipes/build/page.tsx   # Recipe Builder
   recipes/result/page.tsx  # Recipe Result
@@ -120,3 +122,15 @@ docs/
 - Recipe Result에서 LocalStorage 저장/해제 기능 추가
 - `/recipes/saved` 저장 레시피 목록 및 삭제 기능 추가
 - 저장된 레시피를 다시 Builder에서 수정할 수 있도록 다중 query param 초기값 지원
+
+## alpha.4 변경점
+
+- `/guide` 사용자 가이드 페이지 추가
+- 홈에서 서비스 목적과 `트렌드 → 조합 → 점수 → 근거` 흐름을 5초 안에 파악하도록 Hero/온보딩 문구 개선
+- 사용자 가이드에서 5단계 사용법, Production Fit 해석, Evidence, 저장/공유를 한 페이지로 설명
+- Recipe 01–03 기반 인터랙티브 샘플 조합 추가, 샘플을 그대로 Recipe Builder로 넘겨 수정 가능
+- Recipe Builder 상단에 `5가지만 선택하세요` 인라인 온보딩 추가
+- Score Panel에 `?` 및 `점수 읽는 법` 진입점 추가
+- `포화 리스크` 표기를 `포화도 안전성`으로 변경해 높은 점수가 좋은 값이라는 의미를 명확화
+- 샘플 3종이 Safe / Trending / Experimental 전략을 실제로 보여주도록 내부 등급 분기 로직을 조정
+- 데스크톱 헤더에서 사용자 가이드를 일반 메뉴로, 레시피 빌더를 별도 CTA로 분리
